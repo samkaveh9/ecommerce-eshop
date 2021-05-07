@@ -31,7 +31,6 @@ class ProductRequest extends FormRequest
             'category_id' => 'required',
             'subcategory_id' => 'required',
             'brand_id' => 'required',
-            'size' => 'required',
             'color' => 'required',
             'detail' => 'required',
             'images' => 'required',

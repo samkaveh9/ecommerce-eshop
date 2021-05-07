@@ -23,12 +23,15 @@
                                 <div class="row">
                                     <div class="col-xs-6">
                                         <label for="product_name">نام محصول</label>
-                                        <input type="text" class="form-control" name="product_name"
+                                        <input type="text" class="form-control"
+                                                value="{{ old('product_name') }}"
+                                               name="product_name"
                                                placeholder="نام محصول را وارد کنید...">
                                     </div>
                                     <div class="col-xs-6">
                                         <label for="code">کد محصول</label>
                                         <input type="text" class="form-control" name="code"
+                                        value="{{ old('code') }}"
                                                placeholder="کد محصول را وارد کنید...">
                                     </div>
                                 </div>
@@ -65,11 +68,6 @@
                         <div class="box-body">
                             <div class="box-body">
                                 <div class="row">
-                                    <div class="col-xs-6">
-                                        <label for="size">اندازه</label>
-                                        <input type="text" data-role="tagsinput" class="form-control" name="size"
-                                               placeholder="اندازه محصول را وارد کنید...">
-                                    </div>
                                     <div class="col-xs-6">
                                         <label for="color">رنگ</label>
                                         <input type="text" data-role="tagsinput" class="form-control" name="color"
@@ -125,83 +123,9 @@
                         </div>
 
                         <div class="box-body">
-                            <label for="detail">توضیحات محصول</label>
-                            <textarea id="detail" name="detail" rows="10" cols="80"></textarea>
+                            <label for="">توضیحات محصول</label>
+                            <textarea id="" name="detail" rows="10" cols="80">{{ old('detail') }}</textarea>
                         </div>
-
-                        <section class="content">
-                            <div class="row">
-                                <div class="col-md-3 col-sm-6 col-xs-12">
-                                    <div class="info-box-content">
-                                        <label>
-                                            <input type="checkbox" value="1" class="flat-red" name="special_offers">
-                                        </label>
-                                        {{--                                                <p class="info-box-text">پیشنهادهای ویژه</p>--}}
-                                        <span>پیشنهادهای ویژه</span>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 col-sm-6 col-xs-12">
-                                    <div class="info-box-content">
-                                        <label>
-                                            <input type="checkbox" value="1" class="flat-red" name="main_slider">
-                                        </label>
-                                        <span class="info-box-text">اسلایدر اصلی</span>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 col-sm-6 col-xs-12">
-                                    <div class="info-box-content">
-                                        <label>
-                                            <input type="checkbox" value="1" class="flat-red" name="mid_slider">
-                                        </label>
-                                        <span class="info-box-text">اسلایدر میانی</span>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 col-sm-6 col-xs-12">
-                                    <div class="info-box-content">
-                                        <label>
-                                            <input type="checkbox" value="1" class="flat-red" name="amazing_offer">
-                                        </label>
-                                        {{--                                            <span class="info-box-text">پیشنهاد شگفت انگیز</span>--}}
-                                        <p>پیشنهاد شگفت انگیز</p>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 col-sm-6 col-xs-12">
-                                    <div class="info-box-content">
-                                        <label>
-                                            <input type="checkbox" value="1" class="flat-red" name="best_sellers">
-                                        </label>
-                                        {{--                                            <span class="info-box-text">بهترین فروشندگان</span>--}}
-                                        <p>پرفروش ترین ها</p>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 col-sm-6 col-xs-12">
-                                    <div class="info-box-content">
-                                        <label>
-                                            <input type="checkbox" value="1" class="flat-red" name="selected_products">
-                                        </label>
-                                        {{--                                            <span class="info-box-text">کالاهای منتخب</span>--}}
-                                        <p>کالاهای منتخب</p>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-3 col-sm-6 col-xs-12">
-                                    <div class="info-box-content">
-                                        <label>
-                                            <input type="checkbox" value="1" class="flat-red" name="most_visited">
-                                        </label>
-                                        <p>بیشترین بازدیدها</p>
-                                        {{--                                            <span class="info-box-text">بیشترین بازدیدها</span>--}}
-                                        {{--                                            <span class="info-box-text">محصولات پربازدید اخیر</span>--}}
-                                    </div>
-                                </div>
-
-                            </div>
-                        </section>
 
                         <div class="box-footer">
                             <button type="submit" class="btn btn-primary">ثبت</button>
@@ -220,14 +144,9 @@
 
     <link rel="stylesheet" href="{{ asset('vendor/admin/plugins/tagsinput/css/bootstrap-tagsinput.css') }}">
     <link rel="stylesheet" href="{{ asset('vendor/admin/plugins/tagsinput/css/app.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('vendor/admin/plugins/iCheck/all.css') }}">
-    <link rel="stylesheet" href="{{ asset('vendor/admin/plugins/dropzone/dropzone.min.css')  }}">
-    <link rel="stylesheet" href="{{ asset('vendor/admin/plugins/dropzone/basic.min.css')  }}">
 @endpush
 @push('scripts')
     <script src="{{ asset('vendor/admin/plugins/tagsinput/js/bootstrap-tagsinput.min.js') }}"></script>
-    <script src="{{ asset('vendor/admin/plugins/dropzone/dropzone-amd-module.min.js') }}"></script>
     <script src="{{ asset('vendor/admin/bower_components/ckeditor/ckeditor.js') }}"></script>
     <script src="{{ asset('vendor/admin/plugins/iCheck/icheck.min.js') }}"></script>
 
@@ -237,7 +156,7 @@
             type="text/javascript"></script>
     <script src="{{ asset('vendor/admin/plugins/bootstrap-fileinput/js/fileinput.js') }}"
             type="text/javascript"></script>
-    <script src="{{ asset('vendor/admin/plugins/bootstrap-fileinput/js/locales/fa.js') }}js/locales/fr.js"
+    <script src="{{ asset('vendor/admin/plugins/bootstrap-fileinput/js/locales/fa.js') }}"
             type="text/javascript"></script>
     <script src="{{ asset('vendor/admin/plugins/bootstrap-fileinput/themes/fas/theme.js') }}"
             type="text/javascript"></script>
@@ -247,7 +166,7 @@
 
         // CKEDITOR
         $(function () {
-            CKEDITOR.replace('detail')
+            CKEDITOR.replace('')
             $('.textarea').wysihtml5()
         })
 

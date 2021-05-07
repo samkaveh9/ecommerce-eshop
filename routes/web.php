@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['auth:web', 'isAdmin']], function () {
@@ -22,12 +23,13 @@ Route::group(['namespace' => 'Admin', 'prefix' => 'admin', 'middleware' => ['aut
 });
 
 
+Route::group([],function(){
 
+    Route::get('/products/{product}','HomeController@single')->name('product.single');
 
-Route::get('/', function () {
-    return view('welcome');
 });
+
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');

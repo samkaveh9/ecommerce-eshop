@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Product;
 
 class HomeController extends Controller
 {
@@ -13,7 +13,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //$this->middleware('auth');
     }
 
     /**
@@ -23,6 +23,25 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $bestsellers = Product::where('payCount','>=',100)
+                        ->orderBy('id','desc')
+                        ->latest()
+                        ->get();
+
+        $mostPopular = Product::where('viewCount','>=',100)
+        ->orderBy('id','desc')
+        ->latest()
+        ->get();
+                        
+        $latestProducts = Product::latest()->get();
+
+        return view('home',compact('bestsellers','mostPopular','latestProducts'));
     }
+
+    public function single(Product $product)
+    {   
+        return view('single',compact('product'));
+    }
+
 }

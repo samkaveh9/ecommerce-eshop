@@ -13,12 +13,8 @@ use App\Order;
 class Product extends Model
 {
     use Sluggable;
-  protected $fillable = [
-      'category_id','subcategory_id','brand_id','product_name','slug',
-      'code','quantity','size','color','detail','images', 'selling_price',
-      'discount_price','special_offers','main_slider','mid_slider',
-      'amazing_offer','best_sellers','selected_products','most_visited'
-      ];
+    
+  protected $guarded = [];
 
     /**
      * Return the sluggable configuration array for this model.
